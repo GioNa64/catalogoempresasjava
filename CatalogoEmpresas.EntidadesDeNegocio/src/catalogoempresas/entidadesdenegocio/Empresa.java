@@ -7,13 +7,13 @@ public class Empresa {
     private String rubro;
     private String categoria;
     private String departamento;
-    private String top_aux;
+    private int top_aux;
     private Contacto contacto;
 
     public Empresa() {
     }
 
-    public Empresa(int id, int idContacto, String nombre, String rubro, String categoria, String departamento, String top_aux, Contacto contacto) {
+    public Empresa(int id, int idContacto, String nombre, String rubro, String categoria, String departamento, int top_aux, Contacto contacto) {
         this.id = id;
         this.idContacto = idContacto;
         this.nombre = nombre;
@@ -72,11 +72,11 @@ public class Empresa {
         this.departamento = departamento;
     }
 
-    public String getTop_aux() {
+    public int getTop_aux() {
         return top_aux;
     }
 
-    public void setTop_aux(String top_aux) {
+    public void setTop_aux(int top_aux) {
         this.top_aux = top_aux;
     }
 

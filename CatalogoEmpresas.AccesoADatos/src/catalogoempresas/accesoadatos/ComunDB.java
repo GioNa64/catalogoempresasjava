@@ -1,5 +1,4 @@
 package catalogoempresas.accesoadatos;
-
 import java.sql.*;
 
 public class ComunDB {
@@ -11,16 +10,21 @@ public class ComunDB {
     }
 
     static int TIPODB = TipoDB.SQLSERVER;
-    static String connectionUrl = "jdbc:sqlserver://localhost;"
-            + "database=ControlContactos;"
-            + "user=sa;"
-            + "password=eduardozepeda;"
+
+    static String connectionUrlSqlServer = "jdbc:sqlserver://localhost;"
+            + "database=CatalogoEmpresasDB;"
+            + "user=Gio;"
+            + "password=Cr7RealG00;"
             + "loginTimeout=30;encrypt=false;trustServerCertificate=false";
 
     public static Connection obtenerConexion() throws SQLException {
-        DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-        Connection connection = DriverManager.getConnection(connectionUrl);
-        return connection;
+        if (TIPODB == 1) {
+            DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+            Connection connection = DriverManager.getConnection(connectionUrlSqlServer);
+            return connection;
+        }
+
+        return null;
     }
 
     public static Statement createStatement(Connection pConn) throws SQLException {
@@ -52,8 +56,7 @@ public class ComunDB {
             throw ex;
         }
         return result;
-    }
-
+    }   
     /* La clase UtilQuery la utilizaremos para concantenar mejor los filtros de la consultas SELECT a la base de datos  */
     class utilQuery {
 
