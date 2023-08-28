@@ -151,7 +151,7 @@ public class UsuarioServlet extends HttpServlet {
         }
     }
 
-    private void doGetRequestLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   private void doGetRequestLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SessionUser.cerrarSession(request);
         request.getRequestDispatcher("Views/Usuario/login.jsp").forward(request, response);
     }
@@ -175,7 +175,6 @@ public class UsuarioServlet extends HttpServlet {
             request.setAttribute("error", ex.getMessage());
         }
     }
-
     private void doGetRequestCambiarPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Usuario usuario = new Usuario();
